@@ -26,6 +26,7 @@ from textual._slug import TrackedSlugs, slug
         ("test🤷🏻‍♀️test", "testtest"),
     ],
 )
+@pytest.mark.xdist_group(name="group1")
 def test_simple_slug(text: str, expected: str) -> None:
     """The simple slug function should produce the expected slug."""
     assert slug(text) == expected
@@ -57,6 +58,7 @@ def tracker() -> TrackedSlugs:
         (" test ", "test-5"),
     ],
 )
+@pytest.mark.xdist_group(name="group2")
 def test_tracked_slugs(tracker: TrackedSlugs, text: str, expected: str) -> None:
     """The tracked slugging class should produce the expected slugs."""
     assert tracker.slug(text) == expected

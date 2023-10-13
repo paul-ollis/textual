@@ -74,6 +74,7 @@ pytest-asyncio = "*"
 pytest-textual-snapshot = ">=0.4.0"
 types-tree-sitter = "^0.20.1.4"
 types-tree-sitter-languages = "^1.7.0.1"
+pytest-xdist = "*"
 
 [tool.black]
 includes = "src"
@@ -81,7 +82,7 @@ includes = "src"
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
-addopts = "--strict-markers"
+addopts = "--strict-markers --dist=loadgroup"
 markers = [
     "integration_test: marks tests as slow integration tests (deselect with '-m \"not integration_test\"')",
 ]
