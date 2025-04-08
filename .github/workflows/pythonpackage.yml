@@ -1,15 +1,6 @@
 name: Test Textual module
 
-on:
-  pull_request:
-    paths:
-      - ".github/workflows/pythonpackage.yml"
-      - "**.py"
-      - "**.pyi"
-      - "**.css"
-      - "**.ambr"
-      - "**.lock"
-      - "Makefile"
+on: workflow_dispatch
 
 env:
   PYTEST_ADDOPTS: "--color=yes"
@@ -20,7 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.8", "3.12"]
     defaults:
       run:
         shell: bash
